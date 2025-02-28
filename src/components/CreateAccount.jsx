@@ -7,7 +7,6 @@ import BackButton from "./Buttons/BackButton";
 import ButtonLogo from "./Buttons/ButtonLogo";
 import PhoneNumberInput from "./PhoneNumberInput";
 import { useNavigate } from "react-router-dom";
-import { Cookie } from "lucide-react";
 
 const CreateAccount = () => {
 
@@ -16,23 +15,26 @@ const CreateAccount = () => {
     const [showWarning, setShowWarning] = useState(false);
 
     const validatePhoneLength = (value) => {
-        const cleanedValue = value.replace(/\D/g, "");
+        const cleanedValue = value.replace(/\D/g, ""); // Elimina caracteres no numéricos
         setPhoneNumber(value);
-        if (cleanedValue.length < 4 || cleanedValue.length > 10) {
-            setShowWarning(true);
+    
+        if (cleanedValue.length === 0) {
+            setShowWarning(false); // Si está vacío, ocultar aviso
+        } else if (cleanedValue.length < 4 || cleanedValue.length > 10) {
+            setShowWarning(true); // Si está fuera del rango, mostrar aviso
         } else {
-            setShowWarning(false);
+            setShowWarning(false); // Si está dentro del rango, ocultar aviso
         }
     };
 
     const handleRegister =() => {
         const fakeToken = "fake-token-123456"; //simulacion del token
         Cookies.set("token", fakeToken, { expires: 1 }); //expiracin 1 dia 
-        navigate("/login"); //redirigir login
+        navigate("/homepage"); //redirigir login
     };
 
     const handleRedirect = () => {
-        navigate('/login');
+        navigate("/login");
       };
 
     return (
@@ -54,29 +56,24 @@ const CreateAccount = () => {
                                 />
                         </div>
                         <div className="mb-6">
-                            <label className="block text-sm font-medium mb-2 text-gray-600 " >Número</label>
-                            <div className="flex items-center justify-center space-x-4 w-full ">
-                                <PhoneNumberInput/>
-                                    <input
-                                        type="tel"
-                                        id="phone"
-                                        pattern="[0-9]{4,15}"
-                                        minlength="4"
-                                        maxlength="15"
-                                        value={phoneNumber}
-                                        onChange={(e) => validatePhoneLength(e.target.value)}
-                                        className="border-gray-400 shadow-lg shadow-gray-400/40 w-full px-4 py-2 border rounded-lg text-gray-700 
-                                        appearance-none [-moz-appearance:_textfield] [&::-webkit-outer-spin-button]:m-0 
-                                        [&::-webkit-outer-spin-button]:appearance-none [&::-webkit-inner-spin-button]:m-0 
-                                        [&::-webkit-inner-spin-button]:appearance-none"
-                                        placeholder="Ingresa tu numero"
-                                    />
-                                        {showWarning && (
-                                            <div className="absolute text-sm text-red-600 mt-3 w-30">
-                                                El número debe tener entre 4 y 10 digitos
-                                            </div>)}
+                            <label className="block text-sm font-medium mb-2 text-gray-600" htmlFor="phone">Número</label>
+                            <div className="flex items-center gap-2 w-full">
+                                <PhoneNumberInput />
+                                <input
+                                    type="tel"
+                                    id="phone"
+                                    name="phone"
+                                    pattern="[0-9]{4,10}"
+                                    minLength="4"
+                                    maxLength="10"
+                                    required
+                                    className="border-gray-400 shadow-lg shadow-gray-400/40 px-4 py-2 border rounded-lg text-gray-700 w-full"
+                                    placeholder="Ingresa tu número"
+                                />
                             </div>
                         </div>
+
+
                         <div className="mb-6">
                             <label className="block text-sm font-medium mb-2 text-gray-600" htmlFor="password">Contraseña</label>
                                 <input

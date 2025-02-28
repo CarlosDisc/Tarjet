@@ -26,7 +26,14 @@ const HomePage = () => {
 
         {/* Contenido (SearchBar) encima del fondo */}
         <div className="relative z-20">
-          <SearchBar />
+          <div className="flex justify-center items-center min-h-screen">
+            <div className="text-center">
+              <h1 className="text-4xl sm:text-5xl md:text-6xl font-bold bg-gradient-to-r from-indigo-500 via-purple-500 to-pink-500 bg-clip-text text-transparent animate-gradient mb-6">
+                Encuéntralo Aquí
+              </h1>
+              <SearchBar />
+            </div>
+          </div>
         </div>
       </div>
 
@@ -50,11 +57,6 @@ const HomePage = () => {
       <div className="relative z-20">
         <Information/>
       </div>
-
-      <div className="relative z-20">
-        <Logout/>
-      </div>
-
     </div>
   );
 };

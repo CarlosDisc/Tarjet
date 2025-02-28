@@ -15,7 +15,6 @@ const ButtonLogo = () => {
         }
     }
     return (
-        
             <button 
                     onClick={handleClick} 
                             className="flex items-center justify-center space-x-2 ">
