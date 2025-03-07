@@ -20,8 +20,7 @@ const PhoneNumberInput = () => {
         defaultCountry="US"
         value={value}
         onChange={handleChange}
-        className="w-26 px-3 py-2 border border-gray-400 shadow-lg shadow-gray-400/40 rounded-lg text-gray-700 text-center bg-gray-100"
-    
+        className="w-26 px-3 py-2 border-gray-400 shadow-lg shadow-gray-400/40 rounded-lg text-gray-700 text-center bg-[#F1F1F1]"
       />
     </div>
   );

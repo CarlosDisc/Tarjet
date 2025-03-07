@@ -1,10 +1,11 @@
 import React, { useState, useEffect } from "react";
+import Tarjet from "../Tarjet";
 import tarjet from "../../images/Tarjet.png"; // Imagen de tarjetas
-import arrowLeft from "../../assets/arrow_left.png"; // Flecha izquierda
-import arrowRight from "../../assets/arrow_right.png"; // Flecha derecha
-import favoriteIcon from "../../assets/favorite_icon.png"; // Icono de favorito
-import shareIcon from "../../assets/share_icon.png"; // Icono de compartir
-import newFolderIcon from "../../assets/new_folder_icon.png"; // Icono de nueva carpeta
+import arrowLeft from "../../assets/arrows/arrow_left.png"; // Flecha izquierda
+import arrowRight from "../../assets/arrows/arrow_right.png"; // Flecha derecha
+import favoriteIcon from "../../assets/MiniIcons_tarjet/favorite_icon.png"; // Icono de favorito
+import shareIcon from "../../assets/MiniIcons_tarjet/share_icon.png"; // Icono de compartir
+import newFolderIcon from "../../assets/MiniIcons_tarjet/new_folder_icon.png"; // Icono de nueva carpeta
 
 const Destacados = () => {
   const images = [tarjet, tarjet, tarjet, tarjet, tarjet]; // Simulación de elementos
@@ -53,39 +54,12 @@ const Destacados = () => {
           >
             {images.map((img, index) => (
               <div key={index} className="flex-shrink-0 px-2" style={{ width: `${100 / slidesToShow}%` }}>
-                <div 
-                  className="relative bg-white rounded-lg shadow-lg p-4 group"
+                <Tarjet 
+                  img={img}
+                  isHovered={hoveredIndex===index}
                   onMouseEnter={() => setHoveredIndex(index)}
-                  onMouseLeave={() => setHoveredIndex(null)}
-                >
-                  {/* Contenedor de la imagen con blur en hover */}
-                  <div className="relative">
-                    <img
-                      src={img}
-                      alt={`destacado-${index}`}
-                      className={`w-full h-auto rounded-lg transition-all duration-300 ${
-                        hoveredIndex === index ? "blur-md" : "blur-0"
-                      }`}
-                    />
-
-                    {/* Íconos flotantes (aparecen solo en hover) */}
-                    <div
-                      className={`absolute top-2 right-2 flex flex-col space-y-2 transition-opacity duration-300 ${
-                        hoveredIndex === index ? "opacity-100" : "opacity-0 pointer-events-none"
-                      }`}
-                    >
-                      <button className="w-6 h-6 bg-white p-1 rounded-full shadow-md hover:bg-gray-200 transition">
-                        <img src={newFolderIcon} alt="Guardar en carpeta" className="w-full h-full" />
-                      </button>
-                      <button className="w-6 h-6 bg-white p-1 rounded-full shadow-md hover:bg-gray-200 transition">
-                        <img src={favoriteIcon} alt="Favorito" className="w-full h-full" />
-                      </button>
-                      <button className="w-6 h-6 bg-white p-1 rounded-full shadow-md hover:bg-gray-200 transition">
-                        <img src={shareIcon} alt="Compartir" className="w-full h-full" />
-                      </button>
-                    </div>
-                  </div>
-                </div>
+                  onMouseLeave={() => setHoveredIndex(null)} 
+                />
               </div>
             ))}
           </div>
@@ -103,5 +77,4 @@ const Destacados = () => {
     </div>
   );
 };
-
 export default Destacados;

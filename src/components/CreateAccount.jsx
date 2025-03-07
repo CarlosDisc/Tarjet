@@ -47,29 +47,35 @@ const CreateAccount = () => {
                 </div>
                     <form>
                         <div className="mb-4">
-                            <label className="block text-sm font-medium mb-2 text-gray-600" htmlFor="email">Correo Electrónico</label>
-                                <input
-                                    type="email"
-                                    id="email"
-                                    className="w-full px-3 py-2 border border-gray-400 shadow-lg shadow-gray-400/40 rounded-lg text-gray-700"
-                                    placeholder="Ingresa tu correo electrónico"
-                                />
+                            <label 
+                                className="block text-sm font-medium mb-2 text-gray-600" 
+                                htmlFor="email">Correo Electrónico
+                            </label>
+                                    <input
+                                        type="email"
+                                        id="email"
+                                        className="border-gray-400 shadow-lg w-full px-3 py-2 shadow-gray-400/40 rounded-lg text-gray-700 bg-[#F1F1F1]"
+                                        placeholder="Ingresa tu correo electrónico"
+                                    />
                         </div>
                         <div className="mb-6">
-                            <label className="block text-sm font-medium mb-2 text-gray-600" htmlFor="phone">Número</label>
+                            <label 
+                                className="block text-sm font-medium mb-2 text-gray-600" 
+                                htmlFor="phone">Número
+                            </label>
                             <div className="flex items-center gap-2 w-full">
                                 <PhoneNumberInput />
-                                <input
-                                    type="tel"
-                                    id="phone"
-                                    name="phone"
-                                    pattern="[0-9]{4,10}"
-                                    minLength="4"
-                                    maxLength="10"
-                                    required
-                                    className="border-gray-400 shadow-lg shadow-gray-400/40 px-4 py-2 border rounded-lg text-gray-700 w-full"
-                                    placeholder="Ingresa tu número"
-                                />
+                                    <input
+                                        type="tel"
+                                        id="phone"
+                                        name="phone"
+                                        pattern="[0-9]{4,10}"
+                                        minLength="4"
+                                        maxLength="10"
+                                        required
+                                        className="border-gray-400 shadow-lg w-full px-3 py-2 shadow-gray-400/40 rounded-lg text-gray-700 bg-[#F1F1F1]"
+                                        placeholder="Ingresa tu número"
+                                    />
                             </div>
                         </div>
 
@@ -79,7 +85,7 @@ const CreateAccount = () => {
                                 <input
                                     type="password"
                                     id="password"
-                                    className="w-full px-3 py-2 border rounded-lg text-gray-700 border-gray-400"
+                                    className="border-gray-400 shadow-lg w-full px-3 py-2 shadow-gray-400/40 rounded-lg text-gray-700 bg-[#F1F1F1]"
                                     placeholder="Ingresa tu contraseña"
                                 />
                         </div>

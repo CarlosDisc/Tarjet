@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
 import categories from "../../images/categories.jpg"; // Imagen de tarjetas
-import arrowLeft from "../../assets/arrow_left.png"; // Flecha izquierda
-import arrowRight from "../../assets/arrow_right.png"; // Flecha derecha
+import arrowLeft from "../../assets/arrows/arrow_left.png"; // Flecha izquierda
+import arrowRight from "../../assets/arrows/arrow_right.png"; // Flecha derecha
 
 const Categories = () => {
   const images = [

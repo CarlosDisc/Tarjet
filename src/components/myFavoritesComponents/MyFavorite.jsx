@@ -1,12 +1,11 @@
 import React from 'react';
-import MenuPerfil from './MenuPerfil';
+import MenuPerfil from '../profilePageComponents/MenuPerfil';
 import Header from '../homePageComponents/Header';
 import SearchBar from '../homePageComponents/SearchBar';
-import ProfileForm from './ProfileForm';
 import Information from '../homePageComponents/Information';
 
 
-const ProfilePage = () => {
+const MyFavorite = () => {
     return(
         <div className="flex flex-col">
             <div>
@@ -20,7 +19,7 @@ const ProfilePage = () => {
                     <MenuPerfil/>
                 </div>
                 <div className='w-full flex justify-center p-6'>
-                    <ProfileForm/>
+                    
                 </div>
             </div>
             <div>
@@ -29,4 +28,4 @@ const ProfilePage = () => {
         </div>
     );
 }
-export default ProfilePage;
+export default MyFavorite;

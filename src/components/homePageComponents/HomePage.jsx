@@ -7,7 +7,7 @@ import Categories from "./Categories";
 import HowToApply from "./HowToApply";
 import ContacUs from "./ContactUs";
 import Information from "./Information";
-import Logout from "../Logout";
+
 
 const HomePage = () => {
   return (

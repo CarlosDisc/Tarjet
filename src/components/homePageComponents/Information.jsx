@@ -1,9 +1,9 @@
 import React from "react";
 import logo from "../../images/logo.jpg";
-import Face from "../../assets/facebook_icon.png";
-import Instagram from "../../assets/instagram_icon.png";
-import X from "../../assets/x_icon.png";
-import Linkedin from "../../assets/linkedin.png";
+import Face from "../../assets/social_networks/facebook_icon.png";
+import Instagram from "../../assets/social_networks/instagram_icon.png";
+import X from "../../assets/social_networks/x_icon.png";
+import Linkedin from "../../assets/social_networks/linkedin.png";
 
 const ContactUs = () => {
   return (
