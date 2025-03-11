@@ -35,7 +35,10 @@ const SearchBar = () => {
               onClick={() => (document.getElementById("search-input").value = "")}
               className="absolute right-3 top-1/2 transform -translate-y-1/2"
             >
-              <img src={Ex} alt="borrar" className="w-3 h-3" />
+              <img 
+                src={Ex} 
+                alt="borrar" 
+                className="w-3 h-3" />
             </button>
           </div>
   
@@ -48,9 +51,15 @@ const SearchBar = () => {
               className="flex items-center gap-2 text-gray-600 hover:text-black w-full px-3 py-2 rounded-lg"
               onClick={() => setShowCategories(!showCategories)}
             >
-              <img src={Categorie} alt="Categorie icon" className="w-5 h-5" />
+              <img 
+                src={Categorie} 
+                alt="Categorie icon" 
+                className="w-5 h-5" />
               <span className="text-[#979797]">Categorías</span>
-              <img src={ArrowDown} alt="arrow down" className="ml-auto w-4 h-4 filter brightness-0 opacity-80" />
+              <img 
+                src={ArrowDown} 
+                alt="arrow down" 
+                className="ml-auto w-4 h-4 filter brightness-0 opacity-80" />
             </button>
   
             {/* Dropdown Categorías */}

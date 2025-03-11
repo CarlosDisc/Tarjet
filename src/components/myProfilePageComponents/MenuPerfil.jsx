@@ -28,16 +28,18 @@ const MenuPerfil = () => {
   ];
 
   return (
-    <div className="bg-[#F1F1F1]">
-      <div className="flex justify-center items-center">
-        <img 
-          src={UserProfile} 
-          alt="" 
-          className="w-20 h-20 rounded-full object-cover mb-2 border-gray-300 shadow-lg" />
-      </div>
-      <div className="flex flex-col items-center text-center">
-        <p>@nombredeusuario</p>
-        <p>Correo Electrónico</p>
+    <div className="bg-[#F1F1F1] ">
+      <div className="p-6 flex flex-col items-center text-center">
+        <div className="flex justify-center items-center">
+          <img 
+            src={UserProfile} 
+            alt="" 
+            className="w-20 h-20 rounded-full object-cover mb-2 border-gray-300 shadow-lg" />
+        </div>
+        <div className="flex flex-col items-center text-center">
+          <p>@nombredeusuario</p>
+          <p>Correo Electrónico</p>
+        </div>
       </div>
       {menuItems.map((item) => (
         <button

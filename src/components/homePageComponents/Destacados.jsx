@@ -3,9 +3,6 @@ import Tarjet from "../Tarjet";
 import tarjet from "../../images/Tarjet.png"; // Imagen de tarjetas
 import arrowLeft from "../../assets/arrows/arrow_left.png"; // Flecha izquierda
 import arrowRight from "../../assets/arrows/arrow_right.png"; // Flecha derecha
-import favoriteIcon from "../../assets/MiniIcons_tarjet/favorite_icon.png"; // Icono de favorito
-import shareIcon from "../../assets/MiniIcons_tarjet/share_icon.png"; // Icono de compartir
-import newFolderIcon from "../../assets/MiniIcons_tarjet/new_folder_icon.png"; // Icono de nueva carpeta
 
 const Destacados = () => {
   const images = [tarjet, tarjet, tarjet, tarjet, tarjet]; // Simulación de elementos
@@ -54,12 +51,14 @@ const Destacados = () => {
           >
             {images.map((img, index) => (
               <div key={index} className="flex-shrink-0 px-2" style={{ width: `${100 / slidesToShow}%` }}>
-                <Tarjet 
-                  img={img}
-                  isHovered={hoveredIndex===index}
-                  onMouseEnter={() => setHoveredIndex(index)}
-                  onMouseLeave={() => setHoveredIndex(null)} 
-                />
+                <div className="relative bg-white rounded-lg shadow-lg p-4 group">
+                  <Tarjet 
+                    img={img}
+                    isHovered={hoveredIndex===index}
+                    onMouseEnter={() => setHoveredIndex(index)}
+                    onMouseLeave={() => setHoveredIndex(null)} 
+                  />
+                </div>
               </div>
             ))}
           </div>

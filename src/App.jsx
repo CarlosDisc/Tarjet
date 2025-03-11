@@ -3,7 +3,7 @@ import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
 import Login from "./components/Login";
 import CreateAccount from './components/CreateAccount';
 import HomePage from './components/homePageComponents/HomePage';
-import ProfilePage from './components/profilePageComponents/ProfilePage';
+import ProfilePage from './components/myProfilePageComponents/MyProfilePage';
 import ProtectedRoute from './components/ProtectedRoute';
 import MyCards from './components/myCardsComponents/MyCards';
 import MyFavorite from './components/myFavoritesComponents/MyFavorite';

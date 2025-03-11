@@ -1,6 +1,6 @@
 import { useState, useCallback } from "react";
 import { useNavigate } from "react-router-dom";
-import MenuPerfil from "../profilePageComponents/MenuPerfil";
+import MenuPerfil from "../myProfilePageComponents/MenuPerfil";
 import ButtonCustom from "../Buttons/ButtonCustom";
 import Notifications from "../../assets/notification.png";
 import UserProfile from "../../assets/profile/userProfile.png";

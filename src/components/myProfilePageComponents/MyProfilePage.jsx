@@ -12,10 +12,10 @@ const ProfilePage = () => {
             <div>
                 <Header />
             </div>
-            <div className="flex justify-center items-center py-4 pt-35">
+            <div className="flex justify-center items-center py-4">
               <SearchBar />
             </div>
-            <div className="flex  items-center justify-center bg-[#F1F1F1]">
+            <div className="flex items-center justify-center bg-[#F1F1F1]">
                 <div className='w-1/4 p-4 sticky top-0 self-start'>
                     <MenuPerfil/>
                 </div>
