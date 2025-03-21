@@ -29,7 +29,7 @@ const Destacados = () => {
   };
 
   return (
-    <div className="w-full flex flex-col items-center my-8 relative pt-20 pb-20">
+    <div className="w-full flex flex-col items-center my-8 relative">
       <h2 className="text-[#63C3D1] text-4xl font-bold mb-4">Nuestros Destacados</h2>
 
       {/* Contenedor con flechas afuera */}
@@ -46,20 +46,20 @@ const Destacados = () => {
         {/* Carrusel */}
         <div className="relative w-full overflow-hidden">
           <div
-            className="flex transition-transform duration-500 ease-in-out"
+            className="flex transition-transform duration-500 ease-in-out border-"
             style={{ transform: `translateX(-${(currentIndex * 100) / slidesToShow}%)` }}
           >
             {images.map((img, index) => (
-              <div key={index} className="flex-shrink-0 px-2" style={{ width: `${100 / slidesToShow}%` }}>
-                <div className="relative bg-white rounded-lg shadow-lg p-4 group">
-                  <Tarjet 
-                    img={img}
-                    isHovered={hoveredIndex===index}
-                    onMouseEnter={() => setHoveredIndex(index)}
-                    onMouseLeave={() => setHoveredIndex(null)} 
-                  />
-                </div>
+              <div key={index} className="flex-shrink-0 px-2 " style={{ width: `${100 / slidesToShow}%` }}>
+              <div className="relative bg-white border border-gray-200 rounded-lg shadow-lg p-4 group">
+                <Tarjet 
+                  img={img}
+                  isHovered={hoveredIndex === index}
+                  onMouseEnter={() => setHoveredIndex(index)}
+                  onMouseLeave={() => setHoveredIndex(null)} 
+                />
               </div>
+            </div>
             ))}
           </div>
         </div>

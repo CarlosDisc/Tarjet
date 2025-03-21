@@ -1,11 +1,10 @@
 import React from 'react';
 import ButtonCustom from '../Buttons/ButtonCustom';
 import UserProfile from "../../assets/profile/userProfile.png"
-import { FaUserCircle } from "react-icons/fa";
 
 const ProfileForm = () => {
   return (
-    <div className="w-full mx-auto bg-white p-4 md:p-8 rounded-2xl shadow-md">
+    <div className="w-full mx-auto p-4 md:p-8">
       {/* Sección de la imagen de perfil */}
       <div className="flex flex-col md:flex-row items-center mb-6 space-y-4 md:space-y-0 md:space-x-6">
         <img

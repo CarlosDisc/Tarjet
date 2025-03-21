@@ -8,6 +8,11 @@ import ProtectedRoute from './components/ProtectedRoute';
 import MyCards from './components/myCardsComponents/MyCards';
 import MyFavorite from './components/myFavoritesComponents/MyFavorite';
 import MySubscription from './components/mySubscriptionComponents/MySubscriptions';
+import AboutUsPage from './components/navComponents/aboutUs/AboutUsPage';
+import OurPlansPage from './components/navComponents/ourPlans/OurPlansPage';
+import ContactUsPage from './components/navComponents/contactUs/ContactUsPage';
+import SearchResultPage from './components/SearchResult/SearchResultPage'
+import PerfilTarjetPage from './components/perfilTarjet/PerfilTarjetPage';
 import { AuthProvider } from './components/AuthContext';
 
 function App() {
@@ -17,6 +22,11 @@ function App() {
         <Routes>
           {/*Rutas publicas*/}
           <Route path ="/" element={<HomePage/>}/>
+          <Route path ="/about_us" element={<AboutUsPage/>}/>
+          <Route path ="/our_plans" element={<OurPlansPage/>}/>
+          <Route path ="/contact_us" element={<ContactUsPage/>}/>
+          <Route path ="/search" element={<SearchResultPage/>}/>
+
 
           {/*Rutas protegidas*/}
           <Route path="/login" element={<Login/>}/>
@@ -28,6 +38,8 @@ function App() {
               <Route path="/mycards" element={<MyCards/>}/>
               <Route path="/favorites" element={<MyFavorite/>}/>
               <Route path="/subscription" element={<MySubscription/>}/>
+              <Route path="/perfil_tarjeta" element={<PerfilTarjetPage/>}/>
+
           </Route>
 
           {/*Otras rutas publicas*/}

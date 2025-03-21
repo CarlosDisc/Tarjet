@@ -3,7 +3,6 @@ import Cookies from 'js-cookie';
 import inicioSesion from '../images/inicioSesion.jpg';
 import ButtonCustom from './Buttons/ButtonCustom';
 import ButtonGoogle from './Buttons/ButtonGoogle';
-import logo from '../images/logo.jpg';
 import BackButton from './Buttons/BackButton';
 import { useNavigate } from 'react-router-dom';
 import ButtonLogo from './Buttons/ButtonLogo';

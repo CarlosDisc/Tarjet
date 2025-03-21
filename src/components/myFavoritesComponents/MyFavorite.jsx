@@ -21,7 +21,6 @@ const MyFavorite = () => {
                 <div className="bg-white rounded-lg shadow-md p-6 mt-5 mx-2 sm:mx-5 mb-5 w-full max-w-6xl">
                     <Favorites />
                 </div>
-
             </div>
             <div>
                 <Information/>

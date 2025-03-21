@@ -38,7 +38,7 @@ const HomePage = () => {
       </div>
 
       {/* Sección sin fondo para Destacados */}
-      <div className="relative z-20">
+      <div className="relative z-20 pt-20 pb-20">
         <Destacados />
       </div>
 

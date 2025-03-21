@@ -19,7 +19,7 @@ const ProfilePage = () => {
                 <div className='w-1/4 p-4 sticky top-0 self-start'>
                     <MenuPerfil/>
                 </div>
-                <div className='w-full flex justify-center p-6'>
+                <div className='bg-white rounded-lg shadow-md p-6 mt-5 mx-2 sm:mx-5 mb-5 w-full max-w-6xl'>
                     <ProfileForm/>
                 </div>
             </div>
