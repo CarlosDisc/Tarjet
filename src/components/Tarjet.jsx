@@ -1,13 +1,24 @@
 import React from "react";
 import newFolderIcon from "../assets/MiniIcons_tarjet/new_folder_icon.png"; 
 import favoriteIcon from "../assets/MiniIcons_tarjet/favorite_icon.png"; 
-import shareIcon from "../assets/MiniIcons_tarjet/share_icon.png"; 
+import shareIcon from "../assets/MiniIcons_tarjet/share_icon.png";
+import { useNavigate } from 'react-router-dom';
 
-const Tarjet = ({ img, isHovered, onMouseEnter, onMouseLeave }) => {
+const Tarjet = ({ img, isHovered, onMouseEnter, onMouseLeave, redirectTo }) => {
+
+  const navigate = useNavigate();
+
+  const handleClick = () => {
+    if (redirectTo){
+      navigate(redirectTo);
+    }
+  };
+
+
   return (
     <div>
       {/* Imagen con blur en hover */}
-      <div className="relative">
+      <div className="relative" onClick={handleClick}>
         <img
           src={img}
           alt="destacado"

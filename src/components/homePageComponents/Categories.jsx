@@ -34,7 +34,7 @@ const Categories = () => {
   };
 
   return (
-    <div className="w-full flex flex-col items-center relative bg-[#191924] pt-30 pb-20">
+    <div className="w-full flex flex-col items-center relative pt-30 pb-20 bg-[linear-gradient(to_right,#0a0f1c,#1e3a5f,#3b1d38,#000000)] p-10">
       <h2 className="text-white text-4xl font-bold mb-4">Descubre algunas de nuestras categorías</h2>
 
       {/* Contenedor con flechas afuera */}

@@ -56,7 +56,8 @@ const Destacados = () => {
                   img={img}
                   isHovered={hoveredIndex === index}
                   onMouseEnter={() => setHoveredIndex(index)}
-                  onMouseLeave={() => setHoveredIndex(null)} 
+                  onMouseLeave={() => setHoveredIndex(null)}
+                  redirectTo={"/perfil_tarjeta"} 
                 />
               </div>
             </div>

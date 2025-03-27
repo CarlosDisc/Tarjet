@@ -13,6 +13,7 @@ import OurPlansPage from './components/navComponents/ourPlans/OurPlansPage';
 import ContactUsPage from './components/navComponents/contactUs/ContactUsPage';
 import SearchResultPage from './components/SearchResult/SearchResultPage'
 import PerfilTarjetPage from './components/perfilTarjet/PerfilTarjetPage';
+import CreateCompanyPage from './components/myCreateCompany/CreateCompanyPage';
 import { AuthProvider } from './components/AuthContext';
 
 function App() {
@@ -39,6 +40,7 @@ function App() {
               <Route path="/favorites" element={<MyFavorite/>}/>
               <Route path="/subscription" element={<MySubscription/>}/>
               <Route path="/perfil_tarjeta" element={<PerfilTarjetPage/>}/>
+              <Route path="/create_company" element={<CreateCompanyPage/>}/>
 
           </Route>
 

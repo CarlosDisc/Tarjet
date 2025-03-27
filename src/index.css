@@ -1,1 +1,18 @@
 @import "tailwindcss";
+
+:root {
+    --primary-color: #63C3D1;
+}
+
+.bg-primary {
+    background-color: var(--primary-color);
+}
+
+.text-primary {
+    color: var(--primary-color)
+}
+.gradient-icon {
+    background: linear-gradient(45deg, #ff7e5f, #2575fc);  /* Gradiente entre dos colores */
+    -webkit-background-clip: text;  /* Aplicar gradiente solo al texto */
+    color: transparent;  /* Hacer que el color base sea transparente */
+}

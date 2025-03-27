@@ -90,7 +90,7 @@ const Login = () => {
 
         <p className="mt-4 text-sm text-center text-gray-600">
           ¿Todavía no tienes una cuenta?{' '}
-          <a href="" className="relative text-[#63C3D1] text-sm-center font-medium"
+          <a href="" className="relative text-primary text-sm-center font-medium"
             onClick={handleRedirectCreateAccount}>
             Regístrate
           </a>

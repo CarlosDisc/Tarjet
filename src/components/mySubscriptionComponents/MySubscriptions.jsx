@@ -19,7 +19,7 @@ const MySubscription = () => {
                 <div className='w-1/4 p-4 sticky top-0 self-start'>
                     <MenuPerfil/>
                 </div>
-                <div className='w-3/4 flex flex-col gap-6 p-4 bg-white rounded-lg m-5 mr-10 md:mr-16 lg:mr-20'>
+                <div className='bg-white rounded-lg shadow-md p-6 mt-5 mx-2 sm:mx-5 mb-5 w-full max-w-6xl'>
                     <Suscripcion/>
                 </div>
             </div>

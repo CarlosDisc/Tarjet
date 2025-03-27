@@ -7,6 +7,7 @@ import UserProfile from "../../assets/profile/userProfile.png";
 import ArrowUp from "../../assets/arrows/arrow_up.png";
 import ArrowDown from "../../assets/arrows/arrow_down.png";
 import Cookies from "js-cookie";
+import { motion } from "framer-motion";
 
 const UserButtons = () => {
   const [menuOpen, setMenuOpen] = useState(false);
@@ -46,20 +47,27 @@ const UserButtons = () => {
                 </button>
                 <div className="relative">
                   <button 
-                    onClick={toggleUserMenu} 
-                    className="flex items-center text-gray-700 hover:text-black">
-                      <img 
-                        src={menuOpen ? ArrowUp : ArrowDown} 
-                        alt="menu" 
-                        className="w-6 h-6 sm:w-6 sm:h-6 md:w-7 md:h-7 lg:w-8 lg:h-8 xl:w-9 xl:h-9 object-contain" 
+                      onClick={toggleUserMenu} 
+                      className="flex items-center text-gray-700 hover:text-black transition-colors duration-300"
+                  >
+                      <motion.img 
+                          src={menuOpen ? ArrowDown : ArrowDown} 
+                          alt="menu" 
+                          className="w-6 h-6 sm:w-6 sm:h-6 md:w-7 md:h-7 lg:w-8 lg:h-8 xl:w-9 xl:h-9 object-contain"
+                          animate={{ rotate: menuOpen ? 180 : 0 }} // Rotación suave
+                          transition={{ duration: 0.3, ease: "easeInOut" }} 
                       />
                   </button>
-                  {menuOpen && (
-                    <div className="absolute right-0 mt-3 w-48 bg-white rounded-lg shadow-lg py-2 z-50">
+
+                  <motion.div
+                      initial={{ opacity: 0, y: -10 }}
+                      animate={menuOpen ? { opacity: 1, y: 0 } : { opacity: 0, y: -10 }}
+                      transition={{ duration: 0.3, ease: "easeOut" }}
+                      className={`absolute right-0 mt-3 w-48 bg-white rounded-lg shadow-lg py-2 z-50 ${menuOpen ? 'block' : 'hidden'}`}
+                  >
                       <MenuPerfil/>
-                    </div>
-                  )}
-                </div>
+                  </motion.div>
+              </div>
               </>
         ) : (
           <>
