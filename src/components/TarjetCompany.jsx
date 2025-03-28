@@ -20,7 +20,7 @@ const getTextColorForBackground = (bg) => {
   }
 };
 
-const Tarjet = ({
+const TarjetCompany = ({
   bg,
   icon,
   altIcon,
@@ -94,4 +94,4 @@ const Tarjet = ({
   );
 };
 
-export default Tarjet;
+export default TarjetCompany;

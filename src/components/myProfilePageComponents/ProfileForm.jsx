@@ -1,6 +1,6 @@
 import React from 'react';
 import ButtonCustom from '../Buttons/ButtonCustom';
-import UserProfile from "../../assets/profile/userProfile.png"
+import UserProfile from "../../images/profileDefault.png";
 
 const ProfileForm = () => {
   return (

@@ -3,7 +3,7 @@ import { useNavigate } from "react-router-dom";
 import MenuPerfil from "../myProfilePageComponents/MenuPerfil";
 import ButtonCustom from "../Buttons/ButtonCustom";
 import Notifications from "../../assets/notification.png";
-import UserProfile from "../../assets/profile/userProfile.png";
+import UserProfile from "../../images/profileDefault.png";
 import ArrowUp from "../../assets/arrows/arrow_up.png";
 import ArrowDown from "../../assets/arrows/arrow_down.png";
 import Cookies from "js-cookie";

@@ -17,7 +17,7 @@ const ContactUsPage = () => {
                             <input 
                                 id="name"
                                 type="text" 
-                                className="border-gray-400 shadow-lg w-full px-3 py-2 shadow-gray-400/40 rounded-lg text-gray-700 bg-[#F1F1F1]"
+                                className="my-input-style"
                             />
                         </div>
                         <div className="w-full">
@@ -25,7 +25,7 @@ const ContactUsPage = () => {
                             <input 
                                 id="email"
                                 type="email" 
-                                className="border-gray-400 shadow-lg w-full px-3 py-2 shadow-gray-400/40 rounded-lg text-gray-700 bg-[#F1F1F1]"
+                                className="my-input-style"
                             />
                         </div>
                     </div>
@@ -36,7 +36,7 @@ const ContactUsPage = () => {
                             <input 
                                 id="phone"
                                 type="tel" 
-                                className="border-gray-400 shadow-lg w-full px-3 py-2 shadow-gray-400/40 rounded-lg text-gray-700 bg-[#F1F1F1]"
+                                className="my-input-style"
                             />
                         </div>
                         <div className="w-full">
@@ -44,7 +44,7 @@ const ContactUsPage = () => {
                             <input 
                                 id="city"
                                 type="text" 
-                                className="border-gray-400 shadow-lg w-full px-3 py-2 shadow-gray-400/40 rounded-lg text-gray-700 bg-[#F1F1F1]"
+                                className="my-input-style"
                             />
                         </div>
                     </div>
@@ -53,7 +53,7 @@ const ContactUsPage = () => {
                         <label htmlFor="message" className="block text-sm font-medium mb-2 text-[#545F71]">Mensaje</label>
                         <textarea 
                             id="message"
-                            className="border-gray-400 shadow-lg w-full px-3 py-2 shadow-gray-400/40 rounded-lg text-gray-700 bg-[#F1F1F1] h-32"
+                            className="my-input-style h-32"
                         ></textarea>
                     </div>
                     <div className="flex w-[150px]">

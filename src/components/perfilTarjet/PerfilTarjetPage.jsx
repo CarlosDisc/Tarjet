@@ -12,7 +12,9 @@ import Videos from "./Videos";
 import Location from "./Location";
 import CoWorkers from "./CoWorkers";
 import tarjet from "../../images/tarjet.png";
+import icon from "../../images/icon.png";
 import tarjetBside from "../../images/tarjetBside.png";
+import Tarjet from "../Tarjet";
 
 const PerfilTarjetPage = () => {
     const [selectedComponent, setSelectedComponent] = useState(null);
@@ -77,17 +79,18 @@ const PerfilTarjetPage = () => {
             <div className="flex flex-col items-center mt-8 pb-5">
                 {/* Imagen superior con borde RGB más ligero */}
                 <motion.div
-                    className="border-2 rounded-xl p-0.5 relative overflow-hidden"
+                    className="border-2 rounded-xl relative overflow-hidden"
                     animate={{
                         borderColor: ["#ff9999", "#99ff99", "#9999ff", "#ff99ff", "#ff9999"],
                     }}
                     transition={{ repeat: Infinity, duration: 5, ease: "easeInOut" }}
                 >
-                    <img 
-                        src={tarjet} 
-                        alt="Tarjeta" 
-                        className="w-96 md:w-[500px] lg:w-[600px] rounded-xl"
-                        />
+                    <Tarjet
+                        bg={"#20B2AA"}
+                        icon={icon} 
+                        width="600px"   
+                        height="350px"  
+                    />
                     <div className="absolute bottom-0 left-0 right-0 flex justify-center gap-4 pb-2 rounded-b-xl">
                     {[
                         { icon: FaShareAlt, id: "share" },

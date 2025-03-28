@@ -1,29 +1,50 @@
-import React from "react";
+import React, { useState } from "react";
+import Tarjet from "../Tarjet";
+import icon from "../../images/icon.png";
+import profileIcon from "../../images/profileDefault.png";
 
-// Datos de ejemplo para los colaboradores
+// Datos de los colaboradores
 const collaborators = [
-    { name: "Juan Pérez", role: "Desarrollador", image: "path_to_image_juan" },
-    { name: "Ana Gómez", role: "Diseñadora", image: "path_to_image_ana" },
-    { name: "Carlos Sánchez", role: "Product Manager", image: "path_to_image_carlos" },
-    { name: "Lucía Torres", role: "QA", image: "path_to_image_lucia" }
+    { name: "Juan Pérez", role: "Desarrollador", bg: "#8A2BE2", redirectTo: "/perfil_juan" },
+    { name: "Ana Gómez", role: "Diseñadora", bg: "#FF5733", redirectTo: "/perfil_ana" },
+    { name: "Carlos Sánchez", role: "Product Manager", bg: "#4A90E2", redirectTo: "/perfil_carlos" },
+    { name: "Lucía Torres", role: "QA", bg: "#9B59B6", redirectTo: "/perfil_lucia" }
 ];
 
 const CoWorkers = () => {
+    const [flippedIndex, setFlippedIndex] = useState(null);
+
     return (
-        <div className="flex flex-wrap justify-center  gap-6">
-            {collaborators.map((collaborator, index) => (
-                <div key={index} className="w-60 p-4 rounded-xl bg-gray-100 shadow-xl text-center">
-                    <img
-                        src={collaborator.image}
-                        alt={collaborator.name}
-                        className="w-24 h-24 rounded-full mx-auto mb-4"
-                    />
-                    <h3 className="text-xl font-semibold">{collaborator.name}</h3>
-                    <p className="text-sm text-gray-500">{collaborator.role}</p>
-                </div>
-            ))}
+        <div className="flex flex-col items-center gap-6 mb-15">
+            <h1 className="text-2xl font-bold text-gray-700">COLABORADORES</h1>
+
+            <div className="flex flex-wrap justify-center gap-6">
+                {collaborators.map((collaborator, index) => (
+                    <div
+                        key={index}
+                        className="relative w-[250px] h-[150px] cursor-pointer"
+                        onMouseEnter={() => setFlippedIndex(index)}
+                        onMouseLeave={() => setFlippedIndex(null)}
+                        style={{ perspective: "1000px" }} // Perspectiva para el efecto 3D
+                    >
+                        <Tarjet
+                            bg={collaborator.bg}
+                            icon={icon}
+                            altIcon={profileIcon} // Icono del lado B
+                            redirectTo={collaborator.redirectTo}
+                            name={collaborator.name}
+                            role={collaborator.role}
+                            flipped={flippedIndex === index} // Controla la rotación
+                            width="250px"
+                            height="150px"
+                        />
+                    </div>
+                ))}
+            </div>
         </div>
     );
 };
 
 export default CoWorkers;
+
+

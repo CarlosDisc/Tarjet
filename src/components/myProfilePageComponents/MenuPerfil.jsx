@@ -9,7 +9,7 @@ import SuscripcionProfile from "../../assets/profile/suscripcion_profile.png";
 import SuscripcionProfileSelected from "../../assets/profile/suscripcion_profile_selected.png";
 import TarjetsProfile from "../../assets/profile/tarjets_profile.png";
 import TarjetsProfileSelected from "../../assets/profile/tarjets_profile_selected.png";
-import UserProfile from "../../assets/profile/userProfile.png";
+import UserProfile from "../../images/profileDefault.png";
 
 const MenuPerfil = () => {
   const navigate = useNavigate();

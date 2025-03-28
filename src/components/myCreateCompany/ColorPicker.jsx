@@ -1,30 +1,55 @@
-import React from "react";
+import React, { useEffect, useRef, useState } from "react";
+import iro from "@jaames/iro";
 
-const ColorPicker = ({ color, setColor }) => {
+const ColorPicker = () => {
+    const [color, setColor] = useState("#cf82cf");
+    const colorPickerRef = useRef(null);
+    const colorPickerInstance = useRef(null);
+
+    useEffect(() => {
+        if (!colorPickerInstance.current) {
+            colorPickerInstance.current = new iro.ColorPicker(colorPickerRef.current, {
+                width: 200,
+                color: color,
+                borderWidth: 1,
+                borderColor: "#ccc",
+            });
+
+            // Cuando cambia el color en la paleta, actualizar el estado
+            colorPickerInstance.current.on("color:change", (c) => {
+                setColor(c.hexString);
+            });
+        }
+    }, []);
+
+    // Cuando el usuario escribe un color en el input, actualizar la paleta
+    const handleInputChange = (e) => {
+        const newColor = e.target.value;
+        setColor(newColor);
+
+        // Si el color es válido, actualizar la paleta
+        if (/^#([0-9A-F]{3}){1,2}$/i.test(newColor)) {
+            colorPickerInstance.current.color.set(newColor);
+        }
+    };
+
     return (
-        <div className="mb-6 p-4 bg-white shadow-md rounded-xl">
+        <div className="mb-6 p-4 bg-white shadow-md rounded-xl flex flex-col items-center">
             <h2 className="text-xl font-semibold mb-4 text-gray-700 text-center">
                 Selecciona un Color
             </h2>
 
-            <div className="flex flex-col items-center gap-4">
-                {/* Selector de color estilizado */}
-                <input
-                    type="color"
-                    value={color}
-                    onChange={(e) => setColor(e.target.value)}
-                    className="w-20 h-12 rounded-lg border-2 border-gray-300 shadow-lg cursor-pointer transition hover:scale-105"
-                />
+            {/* Contenedor para la paleta de colores */}
+            <div ref={colorPickerRef} className="mb-4"></div>
 
-                {/* Input para código hexadecimal */}
-                <input
-                    type="text"
-                    value={color}
-                    onChange={(e) => setColor(e.target.value)}
-                    className="border-2 border-gray-300 rounded-lg px-4 py-2 text-lg w-36 text-center focus:ring-2 focus:ring-blue-400 transition"
-                    placeholder="#000000"
-                />
-            </div>
+            {/* Input de texto para código hexadecimal */}
+            <input
+                type="text"
+                value={color}
+                onChange={handleInputChange}
+                className="border-2 border-gray-300 rounded-lg px-4 py-2 text-lg w-36 text-center focus:ring-2 focus:ring-blue-400 transition"
+                placeholder="#000000"
+            />
 
             {/* Vista previa del color seleccionado */}
             <div 
@@ -41,4 +66,3 @@ const ColorPicker = ({ color, setColor }) => {
 };
 
 export default ColorPicker;
-
