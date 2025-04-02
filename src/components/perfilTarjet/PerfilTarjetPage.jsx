@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { FaShareAlt, FaHandHolding, FaCamera, FaVideo, FaClock, FaMapMarkerAlt } from "react-icons/fa"; 
 import Header from "../homePageComponents/Header";
@@ -11,13 +11,15 @@ import Schedule from "./Schedules";
 import Videos from "./Videos";
 import Location from "./Location";
 import CoWorkers from "./CoWorkers";
-import tarjet from "../../images/tarjet.png";
 import icon from "../../images/icon.png";
-import tarjetBside from "../../images/tarjetBside.png";
-import Tarjet from "../Tarjet";
+import TarjetCompany from "../TarjetCompany";
 
 const PerfilTarjetPage = () => {
     const [selectedComponent, setSelectedComponent] = useState(null);
+
+    useEffect(() => {
+        window.scrollTo(0, 0); // Mueve el scroll al inicio al cargar el componente
+    }, []);
 
     const openingHours = {
         Lunes: "9:00 AM - 5:00 PM",
@@ -28,77 +30,29 @@ const PerfilTarjetPage = () => {
         Sabado: "Cerrado",
         Domingo: "Cerrado"
     };
+    const tarjetData = [
+        {
+            bg: "#a8322c",
+            textColor: "#0acf00",
+        }
+    ]
 
     const handleIconClick = (component) => {
         setSelectedComponent(prev => (prev === component ? null : component));
-    };
-
-    const renderSelectedComponent = () => {
-        if (!selectedComponent) {
-            return (
-                <motion.div
-                    key="default"
-                    initial={{ opacity: 0, y: 10 }}
-                    animate={{ opacity: 1, y: 0 }}
-                    exit={{ opacity: 0, y: 10 }}
-                    transition={{ duration: 0.5, ease: "easeInOut" }}
-                    className="p-4 rounded-xl shadow-lg text-center"
-                >
-                    <img 
-                        src={tarjetBside} 
-                        alt="Tarjeta Alternativa" 
-                        className="w-96 md:w-[500px] lg:w-[600px] rounded-xl"
-                    />
-                </motion.div>
-            );
-        }
-    
-        return (
-            <motion.div
-                key={selectedComponent}
-                initial={{ opacity: 0, y: 10 }}
-                animate={{ opacity: 1, y: 0 }}
-                exit={{ opacity: 0, y: 10 }}
-                transition={{ duration: 0.5, ease: "easeInOut" }}
-                className="p-4 bg-gray-100 rounded-lg shadow-lg inline-block text-center w-auto"
-            >
-                {selectedComponent === "share" && <Share />}
-                {selectedComponent === "services" && <Services />}
-                {selectedComponent === "photos" && <Images />}
-                {selectedComponent === "video" && <Videos />}
-                {selectedComponent === "schedule" && <Schedule openingHours={openingHours} />}
-                {selectedComponent === "location" && <Location />}
-            </motion.div>
-        );
     };
 
     return (
         <div>
             <Header />
             <SearchBar />
-            <div className="flex flex-col items-center mt-8 pb-5">
-                {/* Imagen superior con borde RGB más ligero */}
-                <motion.div
-                    className="border-2 rounded-xl relative overflow-hidden"
-                    animate={{
-                        borderColor: ["#ff9999", "#99ff99", "#9999ff", "#ff99ff", "#ff9999"],
-                    }}
-                    transition={{ repeat: Infinity, duration: 5, ease: "easeInOut" }}
-                >
-                    <Tarjet
-                        bg={"#20B2AA"}
-                        icon={icon} 
-                        width="600px"   
-                        height="350px"  
-                    />
-                    <div className="absolute bottom-0 left-0 right-0 flex justify-center gap-4 pb-2 rounded-b-xl">
-                    {[
-                        { icon: FaShareAlt, id: "share" },
-                        { icon: FaHandHolding, id: "services" },
-                        { icon: FaCamera, id: "photos" },
-                        { icon: FaVideo, id: "video" },
-                        { icon: FaClock, id: "schedule" },
-                        { icon: FaMapMarkerAlt, id: "location" }
+            <div className="flex flex-col items-center mt-8 pb-5 relative">
+                <div className="absolute top-70 left-0 right-0 flex justify-center gap-4 pt-2 z-10">
+                    {[{ icon: FaShareAlt, id: "share" },
+                      { icon: FaHandHolding, id: "services" },
+                      { icon: FaCamera, id: "photos" },
+                      { icon: FaVideo, id: "video" },
+                      { icon: FaClock, id: "schedule" },
+                      { icon: FaMapMarkerAlt, id: "location" }
                     ].map(({ icon: Icon, id }) => (
                         <motion.button
                             key={id}
@@ -109,45 +63,71 @@ const PerfilTarjetPage = () => {
                             whileTap={{ scale: 0.9 }}
                             animate={{ 
                                 scale: selectedComponent === id ? 1.2 : 1, 
-                                backgroundColor: selectedComponent === id ? "#3b82f6" : "#e5e7eb" 
+                                backgroundColor: selectedComponent === id ? "#fffffff" : "#e5e7eb" 
                             }}
                             transition={{ type: "spring", stiffness: 300 }}
                         >
                             <Icon 
                                 size={24}
                                 style={{
-                                    color: selectedComponent === id ? "#ff7e5f" : "#2575fc"  // Cambiar entre dos colores
+                                    color: selectedComponent === id ? "#0acf00" : tarjetData[0].bg   
                                 }}
                             />
                         </motion.button>
                     ))}
-                    </div>
-                </motion.div>
+                </div>
 
-                {/* Animación de los componentes seleccionados */}
+                <TarjetCompany
+                    bg={tarjetData[0].bg}
+                    icon={icon} 
+                    name="Empresa XYZ"
+                    width="600px"   
+                    height="350px"  
+                    flipped={false} 
+                    textColor={tarjetData[0].textColor}
+                    iconSize = "w-40 h-40"
+                />
+
                 <AnimatePresence>
-                    {renderSelectedComponent() && (
-                        <motion.div
-                            initial={{ opacity: 0, y: 10, scale: 0.8 }}
-                            animate={{ opacity: 1, y: 0, scale: 1 }}
-                            exit={{ opacity: 0, y: -10, scale: 0.8 }}
-                            transition={{ duration: 0.5, ease: "easeInOut" }}
-                            className={`flex justify-center items-center mt-5 mx-auto w-full transition-all duration-300 ease-in-out`}
-                        >
-                            {renderSelectedComponent()}
-                        </motion.div>
-                    )}
+                    <motion.div
+                        key={selectedComponent} // 🔹 Esto asegura que la animación se ejecute cuando el componente cambie
+                        initial={{ opacity: 0, y: 10, scale: 0.8 }}
+                        animate={{ opacity: 1, y: 0, scale: 1 }}
+                        exit={{ opacity: 0, y: -10, scale: 0.8 }}
+                        transition={{ duration: 0.5, ease: "easeInOut" }}
+                        className="flex flex-col justify-center items-center mt-5 mx-auto w-auto transition-all duration-300 ease-in-out"
+                    >
+                        {!selectedComponent ? (
+                            <TarjetCompany
+                                bg={tarjetData[0].bg}
+                                icon={icon} 
+                                name="Empresa XYZ"
+                                phone="+123456789"
+                                email="empresa@correo.com"
+                                website="www.empresa.com"
+                                width="600px"   
+                                height="350px"  
+                                flipped={true}
+                                textColor={tarjetData[0].textColor} 
+                            />
+                        ) : (
+                            <div className="mt-4 p-4 bg-gray-100 rounded-lg shadow-lg w-auto text-center">
+                                {selectedComponent === "share" && <Share />}
+                                {selectedComponent === "services" && <Services />}
+                                {selectedComponent === "photos" && <Images />}
+                                {selectedComponent === "video" && <Videos />}
+                                {selectedComponent === "schedule" && <Schedule openingHours={openingHours} />}
+                                {selectedComponent === "location" && <Location />}
+                            </div>
+                        )}
+                    </motion.div>
                 </AnimatePresence>
-
-                {/* Imagen inferior */}
-                
             </div>
             <div className="pb-5">
-                <CoWorkers/>
+                <CoWorkers />
             </div>
             <Information />
         </div>
-
     );
 };
 

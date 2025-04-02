@@ -6,12 +6,27 @@ import newFolderIcon from "../../assets/MiniIcons_tarjet/new_folder_icon.png"; /
 import favoriteIcon from "../../assets/MiniIcons_tarjet/favorite_icon.png"; // Ícono de favorito
 import shareIcon from "../../assets/MiniIcons_tarjet/share_icon.png";
 import icon from "../../images/icon.png";
+import TarjetCompany from "../TarjetCompany";
 
 const Destacados = () => {
   const bgs = ["#19d125", "#FF5733", "#4A90E2", "#9B59B6", "#F39C12"];
+  const companyNames = [
+    "Tech Solutions",
+    "Global Innovations",
+    "NextGen Systems",
+    "CyberWave",
+    "SkyNet Technologies"
+  ];
   const [currentIndex, setCurrentIndex] = useState(0);
   const [slidesToShow, setSlidesToShow] = useState(3);
   const [hoveredIndex, setHoveredIndex] = useState(null);
+
+  const tarjetData = [
+    {
+        bg: "#2181ff",
+        textColor: "#0acf00",
+    }
+]
 
   useEffect(() => {
     const handleResize = () => {
@@ -56,11 +71,15 @@ const Destacados = () => {
                   onMouseEnter={() => setHoveredIndex(index)}
                   onMouseLeave={() => setHoveredIndex(null)}
                 >
-                  <Tarjet 
+                  <TarjetCompany 
                     bg={bg}  
                     icon={icon}
                     redirectTo={"/perfil_tarjeta"} 
+                    textColor={tarjetData[0].textColor}
+                    iconSize="w-16 h-16"
+                    
                   />
+
 
                   {hoveredIndex === index && (
                     <div className="absolute inset-0 bg-opacity-30 backdrop-blur-md rounded-lg transition-opacity duration-300 pointer-events-none" />
