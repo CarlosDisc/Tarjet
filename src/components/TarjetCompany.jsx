@@ -8,8 +8,7 @@ const TarjetCompany = ({
   altIcon,
   redirectTo,
   name,
-  phone,
-  email,
+  slogan,
   website,
   flipped,
   width = "250px",
@@ -61,12 +60,6 @@ const TarjetCompany = ({
           }}
         >
           {altIcon && <img src={altIcon} alt="Icono alternativo" className="w-12 h-12 mb-2" />}
-          <p className="text-2xl font-semibold" style={{ color: textColor }}>
-            <strong>Telf:</strong> {phone}
-          </p>
-          <p className="text-2xl font-semibold" style={{ color: textColor }}>
-            <strong>Email:</strong> {email}
-          </p>
           <p className="text-2xl font-semibold" style={{ color: textColor }}>
             <strong>Web:</strong> {website}
           </p>

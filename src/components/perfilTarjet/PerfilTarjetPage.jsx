@@ -22,10 +22,10 @@ const PerfilTarjetPage = () => {
     }, []);
 
     const openingHours = {
-        Lunes: "9:00 AM - 5:00 PM",
-        Martes: "9:00 AM - 5:00 PM",
+        Lunes: "9:00 AM - 5:00 PM", // Horario continuo
+        Martes: { mañana: "9:00 AM - 12:00 PM", tarde: "2:00 PM - 5:00 PM" }, // Horario dividido
         Miercoles: "9:00 AM - 5:00 PM",
-        Jueves: "9:00 AM - 5:00 PM",
+        Jueves: { mañana: "9:00 AM - 12:00 PM", tarde: "2:00 PM - 5:00 PM" },
         Viernes: "9:00 AM - 5:00 PM",
         Sabado: "Cerrado",
         Domingo: "Cerrado"
@@ -89,38 +89,26 @@ const PerfilTarjetPage = () => {
                 />
 
                 <AnimatePresence>
-                    <motion.div
-                        key={selectedComponent} // 🔹 Esto asegura que la animación se ejecute cuando el componente cambie
-                        initial={{ opacity: 0, y: 10, scale: 0.8 }}
-                        animate={{ opacity: 1, y: 0, scale: 1 }}
-                        exit={{ opacity: 0, y: -10, scale: 0.8 }}
-                        transition={{ duration: 0.5, ease: "easeInOut" }}
-                        className="flex flex-col justify-center items-center mt-5 mx-auto w-auto transition-all duration-300 ease-in-out"
-                    >
-                        {!selectedComponent ? (
-                            <TarjetCompany
-                                bg={tarjetData[0].bg}
-                                icon={icon} 
-                                name="Empresa XYZ"
-                                phone="+123456789"
-                                email="empresa@correo.com"
-                                website="www.empresa.com"
-                                width="600px"   
-                                height="350px"  
-                                flipped={true}
-                                textColor={tarjetData[0].textColor} 
-                            />
-                        ) : (
-                            <div className="mt-4 p-4 bg-gray-100 rounded-lg shadow-lg w-auto text-center">
-                                {selectedComponent === "share" && <Share />}
-                                {selectedComponent === "services" && <Services />}
-                                {selectedComponent === "photos" && <Images />}
-                                {selectedComponent === "video" && <Videos />}
-                                {selectedComponent === "schedule" && <Schedule openingHours={openingHours} />}
-                                {selectedComponent === "location" && <Location />}
-                            </div>
-                        )}
-                    </motion.div>
+                    {selectedComponent && (
+                        <motion.div
+                            key ={selectedComponent}
+                            initial= {{ opacity: 0, y: 10, scale: 0.8 }}
+                            animate={{ opacity: 1, y: 0, scale: 1 }}
+                            exit={{ opacity: 0, y: -10, scale: 0.8 }}
+                            transition={{ duration: 0.5, ease: "easeInOut" }}
+                            className="flex flex-col justify-center items-center mt-5 mx-auto w-auto transition-all duration-300 ease-in-out"
+                            >
+                                <div className="mt-4 p-4 bg-gray-100 rounded-lg shadow-lg w-200 text-center ">
+                                    {selectedComponent=== "share" && <Share />}
+                                    {selectedComponent === "services" && <Services />}
+                                    {selectedComponent === "photos" && <Images />}
+                                    {selectedComponent === "video" && <Videos />}
+                                    {selectedComponent === "schedule" && <Schedule openingHours={openingHours} />}
+                                    {selectedComponent === "location" && <Location />}
+
+                                </div>
+                        </motion.div>
+                       )}
                 </AnimatePresence>
             </div>
             <div className="pb-5">

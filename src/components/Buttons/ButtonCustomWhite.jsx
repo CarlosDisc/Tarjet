@@ -2,7 +2,7 @@ export default function ButtonCustomWhite({ text, onClick }) {
     return (
       <button 
         onClick={onClick} 
-        className=" relative w-full mt-2 text-black font-semibold py-2 
+        className=" relative w-full  text-black font-semibold py-2 
                     rounded-lg overflow-hidden bg-white transition-all 
                     duration-300 ease-in-out group"
       >
