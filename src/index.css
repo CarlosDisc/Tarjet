@@ -21,5 +21,5 @@
 }
 
 .my-input-style {
-    @apply border-gray-400 shadow-lg w-full px-3 py-2 shadow-gray-400/40 rounded-lg text-gray-700 bg-[#F1F1F1];
+    @apply border-gray-400 shadow-lg w-full px-3 py-2 shadow-gray-400/40 rounded-lg text-gray-700 bg-[#F1F1F1] appearance-none;
 }

@@ -37,7 +37,7 @@ const CreateCompanyPage = () => {
                                 Elige un Diseño
                             </button>
                         </div>
-                        <div className="mt-4">
+                        <div className="mt-4 ">
                             {activeTab === "personal" ? <CustomStyle /> : <TemplateStyle />}
                         </div>
                     

@@ -2,7 +2,8 @@ import React, { useState } from "react";
 import profileDefault from "../../images/profileDefault.png"
 
 const TemplateStyle = () => {
-    const [companyName, setCompanyName] = useState("");
+    const [nombreNegocio, setNombreNegocio] = useState("");
+    const [categoria, setCategoria] = useState("");
     const [slogan, setSlogan] = useState("");
     const [design, setDesign] = useState("center");
     const [logo, setLogo] = useState(profileDefault);
@@ -19,20 +20,22 @@ const TemplateStyle = () => {
         }
     };
     return (
-        <div className="p-6 bg-white shadow-md rounded-xl flex flex-col items-center w-full">
+        <div className=" bg-white shadow-md rounded-xl flex flex-col items-center w-full">
             {/* Subida de Logo */}
             <div className="mb-6">
-                        <h2 className="text-lg font-semibold mb-2">Logo</h2>
-                        
-                        {/* Contenedor con flexbox para imagen y botón */}
-                        <div className="flex items-center justify-between">
+                    <h2 className="text-lg font-semibold mb-2 text-center">Logo</h2>
+
+                    {/* Contenedor centrado */}
+                    <div className="flex justify-center">
+                        {/* Contenedor con flex para imagen y botón, con espacio entre ellos */}
+                        <div className="flex items-center gap-20">
                             {/* Imagen de vista previa */}
                             {logo && (
-                                <div className="flex justify-center mr-4">
+                                <div className="flex justify-center">
                                     <img
                                         src={logo}
                                         alt="Logo Preview"
-                                        className="w-32 h-32 object-cover rounded-lg shadow"
+                                        className="w-24 h-24 object-cover rounded-lg shadow"
                                     />
                                 </div>
                             )}
@@ -43,9 +46,9 @@ const TemplateStyle = () => {
                                 accept="image/*"
                                 onChange={handleLogoChange}
                                 id="logo-input"
-                                className="hidden" // Ocultamos el input real
+                                className="hidden"
                             />
-                            
+
                             {/* Botón personalizado */}
                             <label
                                 htmlFor="logo-input"
@@ -55,23 +58,57 @@ const TemplateStyle = () => {
                             </label>
                         </div>
                     </div>
+                </div>
+                
+                {/* Nombre de Negocio */}
+                <div className="w-100 mx-auto  p-6">
+                    <div className="mb-6">
+                        <label htmlFor="nombreNegocio" className="block text-lg font-semibold mb-2">Nombre de Negocio</label>
+                        <input
+                            type="text"
+                            id="nombreNegocio"
+                            value={nombreNegocio}
+                            onChange={(e) => setNombreNegocio(e.target.value)}
+                            className="my-input-style"
+                            required
+                        />
+                    </div>
 
-            {/* Campos de Texto */}
-            <input
-                type="text"
-                placeholder="Nombre de la Empresa"
-                value={companyName}
-                onChange={(e) => setCompanyName(e.target.value)}
-                className="border-2 border-gray-300 rounded-lg px-4 py-2 text-lg w-64 text-center focus:ring-2 focus:ring-blue-400 transition mb-3"
-            />
-            <input
-                type="text"
-                placeholder="Eslogan de la Empresa"
-                value={slogan}
-                onChange={(e) => setSlogan(e.target.value)}
-                className="border-2 border-gray-300 rounded-lg px-4 py-2 text-lg w-64 text-center focus:ring-2 focus:ring-blue-400 transition mb-6"
-            />
+                    {/* Categoría */}
+                    <div className="mb-6">
+                        <label htmlFor="categoria" className="block text-lg font-semibold mb-2">Categoría</label>
+                        <select
+                            id="categoria"
+                            value={categoria}
+                            onChange={(e) => setCategoria(e.target.value)}
+                            className="my-input-style"
+                            required
+                        >
+                            <option value="">Selecciona una categoría</option>
+                            <option value="comida">Comida</option>
+                            <option value="accesorios">Accesorios</option>
+                            <option value="juguetes">Juguetes</option>
+                            <option value="salud">Salud</option>
+                            {/* Agrega más categorías según necesites */}
+                        </select>
+                    </div>
 
+
+                    {/* Eslogan */}
+                    <div className="mb-6">
+                    <label htmlFor="descripcion" className="block text-lg font-semibold mb-2">
+                        Presentación o Descripción
+                    </label>
+                    <input
+                        type="text"
+                        id="descripcion"
+                        value={slogan}
+                        onChange={(e) => setSlogan(e.target.value)}
+                        className="my-input-style"
+                        required
+                    />
+                    </div>
+                </div>
             {/* Selector de Diseño */}
             <div className="mb-6">
                 <h3 className="text-lg font-semibold mb-2 text-gray-700">Selecciona un Diseño</h3>
@@ -103,7 +140,7 @@ const TemplateStyle = () => {
                     {design === "center" && (
                         <div className="w-full flex flex-col items-center justify-center text-center">
                             {logo && <img src={logo} alt="Logo" className="w-16 h-16 mb-2" />}
-                            <p className="font-bold">{companyName || "Nombre"}</p>
+                            <p className="font-bold">{nombreNegocio || "Nombre"}</p>
                             <p className="text-sm text-gray-600">{slogan || "Eslogan"}</p>
                             <div className="absolute bottom-2 flex gap-2">
                                 <button className="bg-blue-500 text-white px-3 py-1 rounded">Botón 1</button>
@@ -119,7 +156,7 @@ const TemplateStyle = () => {
                             </div>
                             <div className="text-right">
                                 {logo && <img src={logo} alt="Logo" className="w-16 h-16 mb-2 ml-auto" />}
-                                <p className="font-bold">{companyName || "Nombre"}</p>
+                                <p className="font-bold">{nombreNegocio || "Nombre"}</p>
                                 <p className="text-sm text-gray-600">{slogan || "Eslogan"}</p>
                             </div>
                         </div>
@@ -128,7 +165,7 @@ const TemplateStyle = () => {
                         <div className="w-full flex justify-between items-center p-2">
                             <div className="text-left">
                                 {logo && <img src={logo} alt="Logo" className="w-16 h-16 mb-2" />}
-                                <p className="font-bold">{companyName || "Nombre"}</p>
+                                <p className="font-bold">{nombreNegocio || "Nombre"}</p>
                                 <p className="text-sm text-gray-600">{slogan || "Eslogan"}</p>
                             </div>
                             <div className="flex flex-col">

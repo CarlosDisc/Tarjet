@@ -8,7 +8,7 @@ import profileDefault from "../../images/profileDefault.png"
 const CustomStyle = () => {
     const [nombreNegocio, setNombreNegocio] = useState("");
     const [categoria, setCategoria] = useState("");
-    const [descripcion, setDescripcion] = useState("");
+    const [slogan, setSlogan] = useState("");
     const [logo, setLogo] = useState(profileDefault);
 
     const handleLogoChange = (event) => {
@@ -36,22 +36,23 @@ const CustomStyle = () => {
                 logo
             });
     };
-
     return (
         <div>
             <form onSubmit={handleSubmit}>
-                    <div className="mb-6">
-                        <h2 className="text-lg font-semibold mb-2">Logo</h2>
-                        
-                        {/* Contenedor con flexbox para imagen y botón */}
-                        <div className="flex items-center justify-between">
+                <div className="mb-6">
+                    <h2 className="text-lg font-semibold mb-2 text-center">Logo</h2>
+
+                    {/* Contenedor centrado */}
+                    <div className="flex justify-center">
+                        {/* Contenedor con flex para imagen y botón, con espacio entre ellos */}
+                        <div className="flex items-center gap-20">
                             {/* Imagen de vista previa */}
                             {logo && (
-                                <div className="flex justify-center mr-4">
+                                <div className="flex justify-center">
                                     <img
                                         src={logo}
                                         alt="Logo Preview"
-                                        className="w-32 h-32 object-cover rounded-lg shadow"
+                                        className="w-24 h-24 object-cover rounded-lg shadow"
                                     />
                                 </div>
                             )}
@@ -62,9 +63,9 @@ const CustomStyle = () => {
                                 accept="image/*"
                                 onChange={handleLogoChange}
                                 id="logo-input"
-                                className="hidden" // Ocultamos el input real
+                                className="hidden"
                             />
-                            
+
                             {/* Botón personalizado */}
                             <label
                                 htmlFor="logo-input"
@@ -74,53 +75,58 @@ const CustomStyle = () => {
                             </label>
                         </div>
                     </div>
+                </div>
+                {/* Nombre de Negocio */}
+                <div className="w-100 mx-auto  p-6">
+                    <div className="mb-6">
+                        <label htmlFor="nombreNegocio" className="block text-lg font-semibold mb-2">Nombre de Negocio</label>
+                        <input
+                            type="text"
+                            id="nombreNegocio"
+                            value={nombreNegocio}
+                            onChange={(e) => setNombreNegocio(e.target.value)}
+                            className="my-input-style"
+                            required
+                        />
+                    </div>
+
+                    {/* Categoría */}
+                    <div className="mb-6">
+                        <label htmlFor="categoria" className="block text-lg font-semibold mb-2">Categoría</label>
+                        <select
+                            id="categoria"
+                            value={categoria}
+                            onChange={(e) => setCategoria(e.target.value)}
+                            className="my-input-style"
+                            required
+                        >
+                            <option value="">Selecciona una categoría</option>
+                            <option value="comida">Comida</option>
+                            <option value="accesorios">Accesorios</option>
+                            <option value="juguetes">Juguetes</option>
+                            <option value="salud">Salud</option>
+                            {/* Agrega más categorías según necesites */}
+                        </select>
+                    </div>
 
 
-
+                    {/* Eslogan */}
+                    <div className="mb-6">
+                    <label htmlFor="descripcion" className="block text-lg font-semibold mb-2">
+                        Presentación o Descripción
+                    </label>
+                    <input
+                        type="text"
+                        id="descripcion"
+                        value={slogan}
+                        onChange={(e) => setSlogan(e.target.value)}
+                        className="my-input-style"
+                        required
+                    />
+                    </div>
+                </div>
                         {/* Selección de color */}
                         <ColorPicker />
-
-                        {/* Nombre de Negocio */}
-                        <div className="mb-6">
-                            <label htmlFor="nombreNegocio" className="block text-lg font-semibold mb-2">Nombre de Negocio</label>
-                            <input
-                                type="text"
-                                id="nombreNegocio"
-                                value={nombreNegocio}
-                                onChange={(e) => setNombreNegocio(e.target.value)}
-                                className="my-input-style"
-                                required
-                            />
-                        </div>
-
-                        {/* Categoría */}
-                        <div className="mb-6">
-                            <label htmlFor="categoria" className="block text-lg font-semibold mb-2">Categoría</label>
-                            <input
-                                type="text"
-                                id="categoria"
-                                value={categoria}
-                                onChange={(e) => setCategoria(e.target.value)}
-                                className="my-input-style"
-                                required
-                            />
-                        </div>
-
-                        {/* Presentación o Descripción */}
-                        <div className="mb-6">
-                            <label htmlFor="descripcion" className="block text-lg font-semibold mb-2">Presentación o Descripción</label>
-                            <textarea
-                                id="descripcion"
-                                value={descripcion}
-                                onChange={(e) => setDescripcion(e.target.value)}
-                                className="my-input-style"
-                                rows="4"
-                                required
-                            />
-                        </div>
-
-                        {/* Subir Logo */}
-
                         {/* Botón de Guardar */}
                         <div className="flex gap-4">
                             <ButtonCustomWhite text="Omitir"/>
