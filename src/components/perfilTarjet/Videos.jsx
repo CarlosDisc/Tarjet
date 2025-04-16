@@ -1,10 +1,11 @@
 import React from 'react';
 
-const Videos = () => {
+const Videos = ({bg}) => {
     const videoUrl = "https://www.youtube.com/embed/dQw4w9WgXcQ"; // Ejemplo de URL de YouTube (puedes cambiarla)
 
     return (
-        <div className="flex justify-center items-center p-4">
+        <div className="flex justify-center items-center p-4"
+        style={{ backgroundColor: bg }}>
             <div className="w-full md:w-[600px] lg:w-[800px]">
                 <iframe
                     width="100%"

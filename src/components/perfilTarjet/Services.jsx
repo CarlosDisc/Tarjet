@@ -40,29 +40,36 @@ const servicesData = [
     }
 ];
 
-const Services = () => {
+const Services = ({bg}) => {
     return (
-        <div className="mt-8 grid gap-6 w-full max-w-3xl mx-auto">
-            {servicesData.map((service, index) => (
-                <div key={index} className="flex items-center justify-start gap-8 p-6 bg-white shadow-md rounded-lg">
+        <div>
+            <h1 className="text-2xl font-bold text-gray-700">NUESTROS SERVICIOS</h1>
+            <div className="mt-8 py-4 px-2 grid gap-6 sm:grid-cols-1 md:grid-cols-2 lg:grid-cols-2 xl:grid-cols-2 2xl:grid-cols-3 max-w-7xl mx-auto rounded-lg"
+                    style={{ backgroundColor: bg }}>
+                {servicesData.map((service, index) => (
+                    <div
+                    key={index}
+                    className="flex flex-col sm:flex-row items-center justify-start gap-6 p-6 bg-white shadow-md rounded-xl w-full max-w-full"
+                    >
                     {/* Imagen del servicio */}
-                    <img 
-                        src={tarjet} 
-                        alt={`Servicio ${index + 1}`} 
-                        className="w-40 h-40 rounded-lg object-cover"  
+                    <img
+                        src={tarjet}
+                        alt={`Servicio ${index + 1}`}
+                        className="w-32 h-32 sm:w-40 sm:h-40 rounded-lg object-cover"
                     />
-                    
+
                     {/* Contenido del servicio */}
-                    <div className="flex-1">
+                    <div className="flex-1 text-center sm:text-left">
                         <h3 className="text-2xl font-semibold text-gray-800">{service.title}</h3>
-                        <ul className=" pl-5 mt-2 text-gray-600">
-                            {service.subservices.map((sub, subIndex) => (
-                                <li key={subIndex} className="text-lg">{sub}</li>
-                            ))}
+                        <ul className="pl-5 mt-2 text-gray-600 list-disc">
+                        {service.subservices.map((sub, subIndex) => (
+                            <li key={subIndex} className="text-base">{sub}</li>
+                        ))}
                         </ul>
                     </div>
-                </div>
-            ))}
+                    </div>
+                ))}
+            </div>
         </div>
     );
 };
